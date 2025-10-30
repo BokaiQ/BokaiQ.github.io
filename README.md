@@ -1,2 +1,0 @@
-# BokaiQ.github.io
-portfolio
