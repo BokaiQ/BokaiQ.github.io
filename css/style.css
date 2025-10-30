@@ -21,7 +21,7 @@ body {
     max-width: 320px; 
     min-width: 240px; 
 
-    background-color: #121212; /* 侧边栏背景：极黑 */
+    background-color: #111111; /* 侧边栏背景：极黑 */
     padding: 1.5rem 0.5rem; 
     box-shadow: 2px 0 10px rgba(0,0,0,0.5); 
     position: fixed; 
@@ -64,7 +64,7 @@ body {
 .social-links a {
     font-size: 1.5rem;
     margin: 0 0.8rem;
-    color: #00FFFF; 
+    color: #0A0A0A; 
     text-decoration: none;
 }
 .social-links a:hover {
@@ -73,56 +73,37 @@ body {
 
 
 /* ---------------------------------------------------- */
-/* 右侧内容区域 (Main Content Right) - 动态背景核心 */
+/* 右侧内容区域 (Main Content Right) - 静态图片背景核心 */
 /* ---------------------------------------------------- */
 .content-right { 
     margin-left: 20vw; 
     min-height: 100vh;
     padding: 2rem 3rem 2rem 1.5rem; 
     
-    /* 动态背景样式 */
-    background-color: #1A1A1A; /* 回退背景色 */
-    background-image: 
-        /* 噪点 SVG 纹理 */
-        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJuIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIC4wNyAwIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg=='),
-        /* 渐变背景 */
-        linear-gradient(45deg, #1A1A1A 0%, #2C2C2C 25%, #1A1A1A 50%, #2C2C2C 75%, #1A1A1A 100%);
-    background-size: 400% 400%; 
+    /* 核心修改：移除动画，设置静态图片背景 */
+    background-color: #1A1A1A; /* 纯色回退背景 */
+    background-image: url('../images/pic4.jpg'); /* 引用 pic4.jpg */
+    background-size: cover; /* 核心：确保图片覆盖整个区域 */
+    background-attachment: fixed; /* (可选) 确保背景图不随内容滚动 */
+    background-position: center; /* 图片居中 */
     
-    /* 核心：添加兼容性前缀 */
-    -webkit-animation: gradientMove 15s ease infinite; 
-    -moz-animation: gradientMove 15s ease infinite;    
-    animation: gradientMove 15s ease infinite; 
-    
+    /* 移除所有 animation 相关的属性 */
+
     @media (max-width: 768px) {
         margin-left: 240px; 
         padding: 1rem;
     }
 }
 
-/* 核心：定义关键帧动画，并添加兼容性前缀 */
-@-webkit-keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-@-moz-keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+/* 核心修改：移除 @keyframes 规则 */
 
 
 /* ---------------------------------------------------- */
 /* 右侧上方的自我介绍样式 (模块化设计) */
 /* ---------------------------------------------------- */
 .self-introduction-main {
-    background-color: #2C2C2C; /* 模块背景：中灰黑 */
+    /* 模块背景：使用半透明背景，以便看到背景图 */
+    background-color: rgba(44, 44, 44, 0.95); /* 中灰黑，95% 不透明度 */
     border: 1px solid #404040; 
     padding: 1.5rem;
     border-radius: 8px;
@@ -153,7 +134,8 @@ body {
 /* 项目区域样式 (模块化设计) */
 /* ---------------------------------------------------- */
 .projects {
-    background-color: #2C2C2C; 
+    /* 核心：使用半透明背景 */
+    background-color: rgba(44, 44, 44, 0.95); 
     border: 1px solid #404040; 
     padding: 1.5rem; 
     border-radius: 8px;
@@ -171,7 +153,8 @@ body {
 .project-card {
     display: flex;
     align-items: center;
-    background-color: #383838; 
+    /* 核心：卡片背景略微透明 */
+    background-color: rgba(56, 56, 56, 0.9); 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin-bottom: 1.5rem;
@@ -207,7 +190,8 @@ body {
 /* 技能区域样式 (模块化设计) */
 /* ---------------------------------------------------- */
 .skills {
-    background-color: #2C2C2C; 
+    /* 核心：使用半透明背景 */
+    background-color: rgba(44, 44, 44, 0.95); 
     border: 1px solid #404040; 
     padding: 1.5rem; 
     border-radius: 8px;
@@ -227,7 +211,8 @@ body {
     padding: 0;
 }
 .skills li {
-    background-color: #383838; 
+    /* 核心：卡片背景略微透明 */
+    background-color: rgba(56, 56, 56, 0.9); 
     margin-bottom: 0.5rem;
     padding: 0.8rem;
     border-radius: 4px;
