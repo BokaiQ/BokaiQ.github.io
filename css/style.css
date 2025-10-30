@@ -1,28 +1,29 @@
+/* ---------------------------------------------------- */
+/* 全局样式和布局设置 (黑白灰科技风) */
+/* ---------------------------------------------------- */
 :root {
     font-size: 16px; 
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh; 
-    background-color: #F0F4F8; 
-    color: #374151; 
+    background-color: #0A0A0A; /* 主背景色：极黑 */
+    color: #B0B0B0; /* 文本颜色：中灰 */
 }
 
 /* ---------------------------------------------------- */
-/* 左侧固定边栏：照片和链接 (Fixed Left Sidebar) - 紧凑优化 */
+/* 左侧固定边栏：照片和链接 (Fixed Left Sidebar) */
 /* ---------------------------------------------------- */
 .sidebar-left { 
     width: 20vw; 
     max-width: 320px; 
     min-width: 240px; 
 
-    background-color: #FFFFFF;
-    /* 核心修改：减小左右 padding 为 0.5rem */
+    background-color: #121212; /* 侧边栏背景：极黑 */
     padding: 1.5rem 0.5rem; 
-    
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5); 
     position: fixed; 
     left: 0; 
     top: 0;
@@ -34,16 +35,15 @@ body {
     text-align: center;
     justify-content: space-around; 
 }
-
-/* 侧边栏内的文本/链接等样式保持不变 */
-.self-introduction-placeholder {
-    /* 仅为 h1, p 提供包装，确保垂直对齐 */
-    width: 100%;
-    margin-top: 0; 
-    flex-shrink: 1; 
+.sidebar-left h1 {
+    color: #E0E0E0; /* 亮灰白 */
+    font-size: 2.5rem;
 }
-
-/* ... 个人照片和链接样式保持不变 ... */
+.sidebar-left p {
+    color: #00FFFF; /* 青色 */
+    font-size: 1.1rem;
+    margin-top: 0;
+}
 .my-photo {
     width: 10vw; 
     height: 10vw;
@@ -54,7 +54,7 @@ body {
     border-radius: 50%; 
     object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 3px solid #10B981; 
+    border: 3px solid #00FFFF; 
     flex-shrink: 0; 
 }
 .social-links {
@@ -64,104 +64,175 @@ body {
 .social-links a {
     font-size: 1.5rem;
     margin: 0 0.8rem;
-    color: #1E3A8A; 
+    color: #00FFFF; 
     text-decoration: none;
+}
+.social-links a:hover {
+    color: #E0E0E0; 
 }
 
 
 /* ---------------------------------------------------- */
-/* 右侧内容区域：自我介绍、项目和技能 (Main Content Right) - 紧凑优化 */
+/* 右侧内容区域 (Main Content Right) - 动态背景核心 */
 /* ---------------------------------------------------- */
 .content-right { 
-    /* 核心修改：margin-left 仅为 sidebar-left 的宽度，不额外增加 */
     margin-left: 20vw; 
     min-height: 100vh;
-
-    /* 核心修改：左侧 padding 减小到 1.5rem，减少空白 */
     padding: 2rem 3rem 2rem 1.5rem; 
     
-    /* 媒体查询，解决内容重叠问题 */
+    /* 动态背景样式 */
+    background-color: #1A1A1A; /* 回退背景色 */
+    background-image: 
+        /* 噪点 SVG 纹理 */
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJuIj48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlR3JhcGhpYyIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIC4wNyAwIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg=='),
+        /* 渐变背景 */
+        linear-gradient(45deg, #1A1A1A 0%, #2C2C2C 25%, #1A1A1A 50%, #2C2C2C 75%, #1A1A1A 100%);
+    background-size: 400% 400%; 
+    
+    /* 核心：添加兼容性前缀 */
+    -webkit-animation: gradientMove 15s ease infinite; 
+    -moz-animation: gradientMove 15s ease infinite;    
+    animation: gradientMove 15s ease infinite; 
+    
     @media (max-width: 768px) {
-        margin-left: 240px; /* 边栏最小宽度 */
+        margin-left: 240px; 
         padding: 1rem;
     }
 }
 
+/* 核心：定义关键帧动画，并添加兼容性前缀 */
+@-webkit-keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@-moz-keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 /* ---------------------------------------------------- */
-/* 右侧上方的自我介绍样式 (保持不变) */
+/* 右侧上方的自我介绍样式 (模块化设计) */
 /* ---------------------------------------------------- */
 .self-introduction-main {
-    background-color: #FFFFFF; 
+    background-color: #2C2C2C; /* 模块背景：中灰黑 */
+    border: 1px solid #404040; 
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
     margin-bottom: 2rem;
 }
 .self-introduction-main h2 {
-    color: #1E3A8A; 
+    color: #E0E0E0; 
     border-bottom: none; 
     padding-bottom: 0;
     margin-top: 0; 
     font-size: 1.8rem;
 }
+.self-introduction-main hr {
+    border: 0;
+    border-top: 1px solid #404040; 
+    width: 100%;
+    margin: 1rem 0;
+}
+.self-introduction-main p {
+    color: #B0B0B0; 
+    font-size: 1rem;
+    line-height: 1.5;
+}
 
 
 /* ---------------------------------------------------- */
-/* 项目和技能样式 (保持不变) */
+/* 项目区域样式 (模块化设计) */
 /* ---------------------------------------------------- */
-
-/* 项目卡片样式 */
+.projects {
+    background-color: #2C2C2C; 
+    border: 1px solid #404040; 
+    padding: 1.5rem; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem; 
+}
+.projects h2 {
+    color: #E0E0E0; 
+    border-bottom: 2px solid #404040;
+    padding-bottom: 0.5rem;
+    margin-top: 0; 
+    margin-bottom: 1.5rem; 
+    font-size: 1.8rem;
+}
 .project-card {
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: #383838; 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin-bottom: 1.5rem;
     padding: 1rem;
     text-decoration: none; 
-    color: inherit; 
+    color: #B0B0B0; 
     transition: transform 0.3s;
 }
 .project-card:hover {
     transform: translateY(-5px); 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
-
 .project-card img {
-    /* 项目图片适配优化 */
     width: 6rem; 
     height: 6rem;
     object-fit: cover;
     border-radius: 4px;
     margin-right: 1rem;
     flex-shrink: 0; 
+    border: 1px solid #00FFFF; 
 }
-
 .project-info h3 {
-    margin: 0 0 0.2rem 0;
-    color: #10B981; 
+    color: #00FFFF; 
     font-size: 1.1rem;
 }
-
 .project-info p {
-    margin: 0;
     font-size: 0.9rem;
+    color: #B0B0B0;
 }
 
-/* 技能列表样式 */
+
+/* ---------------------------------------------------- */
+/* 技能区域样式 (模块化设计) */
+/* ---------------------------------------------------- */
+.skills {
+    background-color: #2C2C2C; 
+    border: 1px solid #404040; 
+    padding: 1.5rem; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem; 
+}
+.skills h2 {
+    color: #E0E0E0; 
+    border-bottom: 2px solid #404040;
+    padding-bottom: 0.5rem;
+    margin-top: 0; 
+    margin-bottom: 1.5rem; 
+    font-size: 1.8rem;
+}
 .skills ul {
     list-style-type: none; 
     padding: 0;
 }
-
 .skills li {
-    background-color: #eee;
+    background-color: #383838; 
     margin-bottom: 0.5rem;
     padding: 0.8rem;
     border-radius: 4px;
     font-weight: bold;
-    color: #374151;
+    color: #E0E0E0; 
     font-size: 0.95rem;
+    border-left: 4px solid #00FFFF; 
 }
