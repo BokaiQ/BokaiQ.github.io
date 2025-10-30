@@ -1,0 +1,199 @@
+/*
+ * =======================================================
+ * 0. 全局重置与基础设置 (Global Reset & Base)
+ * =======================================================
+ */
+
+* {
+    /* 统一盒模型，更容易控制元素大小 */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 主字体设置：优先使用无衬线字体 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6; /* 提高可读性 */
+    color: #333; /* 基础文本颜色 */
+    background-color: #ffffff; /* 基础背景色 */
+    padding-top: 60px; /* 为固定头部留出空间 */
+}
+
+/* 链接样式 */
+a {
+    color: #007bff; /* 链接的主色调 */
+    text-decoration: none; /* 移除下划线 */
+    transition: color 0.3s ease; /* 颜色变化动画 */
+}
+
+a:hover {
+    color: #0056b3; /* 鼠标悬停时的颜色 */
+    text-decoration: underline; /* 悬停时显示下划线 */
+}
+
+/* 容器居中 */
+.container {
+    width: 90%;
+    max-width: 1200px; /* 限制最大宽度，避免在大屏幕上过宽 */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/*
+ * =======================================================
+ * 1. 头部 (Header) 与 导航 (Nav)
+ * =======================================================
+ */
+
+header {
+    background-color: #2c3e50; /* 头部背景色 (深蓝色) */
+    color: white;
+    position: fixed; /* 固定在页面顶部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 确保它在其他元素之上 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* 标题和导航分离 */
+    align-items: center;
+    padding: 15px 20px;
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #f39c12; /* 导航悬停颜色 (橙色) */
+    text-decoration: none;
+}
+
+
+/*
+ * =======================================================
+ * 2. 英雄区 (Hero Section) 与 自我介绍
+ * =======================================================
+ */
+
+.hero {
+    background-color: #ecf0f1; /* 浅灰色背景 */
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    color: #34495e;
+    margin-top: 10px;
+}
+
+.hero p {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+/* 头像图片样式 */
+.hero img {
+    border: 4px solid #fff; /* 白色边框 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/*
+ * =======================================================
+ * 3. 项目卡片 (Project Cards)
+ * =======================================================
+ */
+
+section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #bdc3c7; /* 底部细线 */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 柔和的阴影 */
+    border-left: 5px solid #007bff; /* 左侧强调色 */
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.project-card p strong {
+    color: #3498db; /* 强调技术栈 */
+}
+
+/*
+ * =======================================================
+ * 4. 底部 (Footer)
+ * =======================================================
+ */
+
+footer {
+    background-color: #34495e; /* 与头部颜色协调 */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/*
+ * =======================================================
+ * 5. 响应式调整 (Responsive Design)
+ * =======================================================
+ */
+
+/* 屏幕小于 768px 时 (如手机和平板) */
+@media (max-width: 768px) {
+    
+    body {
+        padding-top: 50px; /* 减小头部留白 */
+    }
+
+    header .container {
+        flex-direction: column; /* 导航堆叠 */
+        padding: 10px 20px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 0.9em;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 10px 0;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+}
