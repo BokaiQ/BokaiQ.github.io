@@ -120,7 +120,58 @@ h2 { /* 这里的 h2 针对 My projects 和 Skills */
     margin-top: 2rem;
     font-size: 1.8rem;
 }
-/* ... (项目卡片、图片、技能列表等其余样式不变) ... */
-.project-card { /* ... */ }
-.project-card img { /* ... */ }
-.skills li { /* ... */ }
+
+/* 项目卡片样式 */
+.project-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    text-decoration: none; 
+    color: inherit; 
+    transition: transform 0.3s;
+}
+.project-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    /* 项目图片适配优化 */
+    width: 6rem; 
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+    flex-shrink: 0; 
+}
+
+.project-info h3 {
+    margin: 0 0 0.2rem 0;
+    color: #10B981; 
+    font-size: 1.1rem;
+}
+
+.project-info p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 技能列表样式 */
+.skills ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+.skills li {
+    background-color: #eee;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #374151;
+    font-size: 0.95rem;
+}
