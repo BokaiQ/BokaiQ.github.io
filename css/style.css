@@ -41,19 +41,8 @@ body {
 }
 .sidebar-left p {
     color: #00FFFF; /* 青色 */
-    font-size: 0.75rem;
+    font-size: 1.5rem;
     margin-top: 0;
-}
-/* 邮箱样式 */
-.sidebar-left .contact-email {
-    font-size: 0.75rem; 
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem; 
-}
-.sidebar-left .contact-email a {
-    color: #00FFFF; 
-    text-decoration: none; /
-    transition: color 0.3s;
 }
 
 
@@ -93,14 +82,14 @@ body {
     min-height: 100vh;
     padding: 2rem 3rem 2rem 1.5rem; 
     
-    /* 核心修改：移除动画，设置静态图片背景 */
-    background-color: #1A1A1A; /* 纯色回退背景 */
-    background-image: url('../images/pic4.jpg'); /* 引用 pic4.jpg */
-    background-size: cover; /* 核心：确保图片覆盖整个区域 */
-    background-attachment: fixed; /* (可选) 确保背景图不随内容滚动 */
-    background-position: center; /* 图片居中 */
+ 
+    background-color: #1A1A1A; 
+    background-image: url('../images/pic4.jpg'); 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center; 
     
-    /* 移除所有 animation 相关的属性 */
+
 
     @media (max-width: 768px) {
         margin-left: 240px; 
@@ -108,7 +97,7 @@ body {
     }
 }
 
-/* 核心修改：移除 @keyframes 规则 */
+
 
 
 /* ---------------------------------------------------- */
@@ -234,42 +223,41 @@ body {
     font-size: 0.95rem;
     border-left: 4px solid #00FFFF; 
 }
-/* ==================================================== */
-/* 响应式设计：媒体查询 @media (max-width: 768px)       */
-/* ==================================================== */
+/* ---------------------------------------------------- */
+/* 响应式设计：媒体查询       */
+/* ---------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) { 
     
-    /* 1. 左侧边栏适应手机屏幕 */
+    /* 1. 左侧边栏适应手机/平板屏幕 */
     .sidebar-left {
-        /* 核心：取消固定定位，让其进入文档流，位于顶部 */
+        /* 核心修改：取消固定定位，让其进入文档流，位于顶部 */
         position: static; 
         
         /* 核心：宽度变为 100% */
         width: 100%;
-        max-width: none; /* 移除最大宽度限制 */
-        min-width: 0;   /* 移除最小宽度限制 */
-        height: auto;   /* 高度自适应内容 */
+        max-width: none; 
+        min-width: 0;   
+        height: auto;   
         
-        padding: 1rem 1.5rem; /* 调整手机上的内边距 */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* 将阴影调整到底部 */
+        padding: 1rem 1.5rem; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5); 
         
-        /* 调整内容排版，在手机上可能更适合垂直紧凑排列 */
         justify-content: flex-start; 
-        flex-direction: row; /* 在顶部水平排列照片和文字 */
-        flex-wrap: wrap; /* 允许换行 */
+        flex-direction: row; 
+        flex-wrap: wrap; 
     }
     
-    /* 调整左侧栏内容在手机上的显示 */
+    /* 调整左侧栏内容在手机/平板上的显示 */
     .sidebar-left .profile {
         display: flex;
         align-items: center;
-        width: 100%; /* 确保头像和文字占据一行 */
+        width: 100%; 
         text-align: left;
     }
     
     .my-photo {
-        width: 60px; /* 减小头像大小 */
+        width: 60px; 
         height: 60px;
         min-width: 60px;
         min-height: 60px;
@@ -279,37 +267,47 @@ body {
     
     .sidebar-left h1 {
         font-size: 1.5rem;
-        margin-bottom: 0;
+        margin-bottom: 0.2rem;
     }
     
     .sidebar-left p {
-        font-size: 0.9rem;
+        font-size: 0.8rem; 
+        color: #E0E0E0; 
+        margin-bottom: 0;
+    }
+    
+    .sidebar-left .contact-email {
+        font-size: 0.75rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%; 
+        color: #B0B0B0; 
     }
     
     .social-links {
-        width: 100%; /* 链接单独占据一行 */
+        width: 100%; 
         margin-top: 1rem;
         text-align: center;
         padding-top: 1rem;
-        border-top: 1px solid #404040; /* 添加一条分隔线 */
+        border-top: 1px solid #404040; 
     }
     
-    /* 2. 右侧内容区适应手机屏幕 */
+    /* 2. 右侧内容区适应手机/平板屏幕 */
     .content-right {
-        /* 核心：移除左侧边距，让其紧跟在左侧栏下方 */
+        /* 核心修改：移除左侧边距 */
         margin-left: 0;
         width: 100%;
-        padding: 1.5rem 1rem; /* 调整手机上的填充 */
+        padding: 1.5rem 1rem; 
     }
     
-    /* 3. 项目卡片在手机上适应屏幕 */
+    /* 3. 项目卡片在手机/平板上适应屏幕 */
     .project-card {
-        flex-direction: column; /* 垂直堆叠图片和文字 */
+        flex-direction: column; 
         align-items: flex-start;
     }
     
     .project-card img {
-        width: 100%; /* 图片占据整个宽度 */
+        width: 100%; 
         height: auto;
         max-height: 150px;
         margin-bottom: 1rem;
