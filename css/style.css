@@ -178,6 +178,16 @@ body {
     flex-shrink: 0; 
     border: 1px solid #00FFFF; 
 }
+.project-card video {
+    width: 12rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    border: 1px solid #00FFFF;
+    background-color: #000;
+}
 .project-info h3 {
     color: #00FFFF; 
     font-size: 1.1rem;
@@ -310,6 +320,14 @@ body {
         width: 100%; 
         height: auto;
         max-height: 150px;
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+
+    .project-card video {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
         margin-bottom: 1rem;
         margin-right: 0;
     }
